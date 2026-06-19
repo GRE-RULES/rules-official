@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Golf Rules Education — Ask the Rules Assistant</title>
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #24582A; /* Your exact green theme background */
+      color: #FAEE2E; /* Your exact yellow highlights */
+      font-family: 'Georgia', serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    .logo-area h1 { font-size: 2.2rem; color: #FAEE2E; text-transform: uppercase; letter-spacing: 1px; }
+    .logo-area p { font-size: 1.1rem; color: #cccccc; margin-top: 8px; font-style: italic; }
+    .instruction { font-size: 1.2rem; color: #eeeeee; max-width: 500px; line-height: 1.7; margin-top: 40px; }
+    .instruction span { color: #FAEE2E; font-weight: bold; }
+    .mic-note { font-size: 0.9rem; color: #aaaaaa; margin-top: 15px; max-width: 500px; }
+    footer { margin-top: 50px; font-size: 1rem; }
+    footer a { color: #FAEE2E; text-decoration: none; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <div class="logo-area">
+    <h1>Golf Rules Education</h1>
+    <p>Master the Rules, Play with Confidence</p>
+  </div>
+
+  <p class="instruction">
+    Click the floating <span>green phone widget</span> in the bottom right corner of your screen to start a live audio call with our Rules Assistant.
+  </p>
+
+  <p class="mic-note">🎙️ Please choose "Allow" when your web browser asks for microphone access.</p>
+
+  <footer>
+    <a href="#" onclick="window.close(); return false;">← Back to Golf Rules Website</a>
+  </footer>
+
+  <!-- The Official Retell AI Automated Web Voice Widget -->
+  <script 
+    id="retell-widget" 
+    src="https://retellai.com" 
+    type="module" 
+    data-public-key="public_key_8c3674150bf33bfd0c741" 
+    data-agent-id="agent_b92224c12a2b87536a1181890c" 
+    data-title="Ask the Rules Official" 
+    data-color="#00875A"
+  ></script>
+
+</body>
+</html>
