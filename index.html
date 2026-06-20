@@ -23,10 +23,32 @@
     .logo-area p { font-size: 1.1rem; color: #cccccc; margin-top: 8px; font-style: italic; }
     .instruction { font-size: 1.2rem; color: #eeeeee; max-width: 500px; line-height: 1.7; margin-top: 40px; }
     .instruction span { color: #FAEE2E; font-weight: bold; }
-    <!-- .mic-note { font-size: .99rem; color: #aaaaaa; margin-top: 15px; max-width: 500px; } -->
     .mic-note { font-size: 1.2rem; color: #FAEE2E; margin-top: 15px; max-width: 500px; }
+    
+    /* Styled Button Layout */
     footer { margin-top: 50px; font-size: 1rem; }
-    footer a { color: #FAEE2E; text-decoration: none; font-weight: bold; }
+    .btn-back { 
+      display: inline-block;
+      background-color: #FAEE2E; /* Inverting theme colors for high contrast visibility */
+      color: #24582A; 
+      text-decoration: none; 
+      font-weight: bold; 
+      padding: 12px 28px;
+      border-radius: 25px; /* Clean rounded edges */
+      font-family: Arial, sans-serif; /* Cleaner typography choice specifically for actions */
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+    .btn-back:hover { 
+      background-color: #e5da25; /* Darker yellow accent on mouse hover */
+      color: #1b4220;
+    }
+    .btn-back:active {
+      transform: scale(0.97); /* Micro-click structural compression feedback */
+    }
   </style>
 </head>
 <body>
@@ -43,7 +65,8 @@
   <p class="mic-note">🎙️ Please choose "Allow" if your web browser asks for microphone access.</p>
 
   <footer>
-    <a href="#" onclick="window.close(); return false;">← Back to Golf Rules Website</a>
+    <!-- Updated with dedicated button classes and stripped arrow for balanced text centering -->
+    <a href="#" class="btn-back" onclick="window.close(); return false;">Return to Golf Rules Website</a>
   </footer>
 
   <!-- The Official Retell AI Automated Web Voice Widget -->
