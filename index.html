@@ -25,23 +25,23 @@
     .instruction span { color: #FAEE2E; font-weight: bold; }
     .mic-note { font-size: 1.2rem; color: #FAEE2E; margin-top: 15px; max-width: 500px; }
     
-    /* Footer & Button Container */
+    /* Footer Button Layout */
     footer { 
       margin-top: 50px; 
       display: flex;
       flex-direction: row;
-      gap: 15px; /* Creates clean spacing between the buttons */
+      gap: 15px; 
       justify-content: center;
-      flex-wrap: wrap; /* Ensures responsiveness on mobile screens */
+      flex-wrap: wrap; 
     }
 
-    /* Base Button Layout */
+    /* Base Button Design */
     .btn-base {
       display: inline-block;
       text-decoration: none; 
       font-weight: bold; 
       padding: 12px 28px;
-      border-radius: 25px; /* Clean rounded edges */
+      border-radius: 25px; 
       font-family: Arial, sans-serif; 
       font-size: 0.95rem;
       text-transform: uppercase;
@@ -50,10 +50,10 @@
       transition: all 0.2s ease;
     }
     .btn-base:active {
-      transform: scale(0.97); /* Click compression feedback */
+      transform: scale(0.97); 
     }
 
-    /* Primary Solid Button: Return Link */
+    /* Primary Solid Button (Return) */
     .btn-back { 
       background-color: #FAEE2E; 
       color: #24582A; 
@@ -63,15 +63,15 @@
       color: #1b4220;
     }
 
-    /* Secondary Outlined Button: PDF Link */
+    /* Light Green Secondary Button (PDF Guide) */
     .btn-pdf {
       background-color: transparent;
-      color: #FAEE2E;
-      border: 2px solid #FAEE2E;
+      color: #78E08F; /* Beautiful bright light green */
+      border: 2px solid #78E08F;
     }
     .btn-pdf:hover {
-      background-color: rgba(250, 238, 46, 0.1); /* Subtle glowing yellow tint on hover */
-      box-shadow: 0 4px 10px rgba(250, 238, 46, 0.2);
+      background-color: rgba(120, 224, 143, 0.15); /* Light green hover glow */
+      box-shadow: 0 4px 10px rgba(120, 224, 143, 0.3);
     }
   </style>
 </head>
@@ -89,17 +89,18 @@
   <p class="mic-note">🎙️ Please choose "Allow" if your web browser asks for microphone access.</p>
 
   <footer>
-    <!-- New Instructions PDF Link (Opens securely in a new tab) -->
-    <a href="user-instructions.pdf" target="_blank" class="btn-base btn-pdf">📄 View User Guide</a>
+    <!-- 📄 Light Green PDF User Guide Button -->
+    <!-- Swap "your-file-name.pdf" with the exact name of the uploaded PDF -->
+    <a href="your-file-name.pdf" target="_blank" class="btn-base btn-pdf">📄 View User Guide</a>
     
-    <!-- Return Link Button -->
+    <!-- 🏠 Return Link Button -->
     <a href="#" class="btn-base btn-back" onclick="window.close(); return false;">Return to Website</a>
   </footer>
 
   <!-- The Official Retell AI Automated Web Voice Widget -->
   <script 
     id="retell-widget" 
-    src="https://retellai.com"
+    src="https://dashboard.retellai.com/retell-widget-v2.js?v=99"
     type="module" 
     data-widget="voice"
     data-voice-public-key="public_key_8c3674150bf33bfd0c741" 
