@@ -1,50 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Golf Rules Education — Ask the Rules Assistant</title>
-  
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background-color: #24582A; /* Your exact green theme background */
-      color: #FAEE2E; /* Your exact yellow highlights */
-      font-family: 'Georgia', serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 20px;
-    }
-    .logo-area h1 { font-size: 2.2rem; color: #FAEE2E; text-transform: uppercase; letter-spacing: 1px; }
-    .logo-area p { font-size: 1.1rem; color: #cccccc; margin-top: 8px; font-style: italic; }
-    .instruction { font-size: 1.2rem; color: #eeeeee; max-width: 500px; line-height: 1.7; margin-top: 40px; }
-    .instruction span { color: #FAEE2E; font-weight: bold; }
-    <!-- .mic-note { font-size: .99rem; color: #aaaaaa; margin-top: 15px; max-width: 500px; } -->
-    .mic-note { font-size: 1.2rem; color: #FAEE2E; margin-top: 15px; max-width: 500px; }
-    footer { margin-top: 50px; font-size: 1rem; }
-    footer a { color: #FAEE2E; text-decoration: none; font-weight: bold; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golf Rules Education — Ask the Rules Assistant</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            color: #111111;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666666;
+            margin-bottom: 30px;
+        }
+        /* New Tips ReadMe Panel */
+        .tips-panel {
+            background-color: #f6f8fa;
+            border-left: 4px solid #2da44e; /* Matching your green branding */
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: left;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .tips-panel strong {
+            display: block;
+            font-size: 1.05rem;
+            color: #1f2328;
+            margin-bottom: 12px;
+        }
+        .tips-panel ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #444444;
+            font-size: 0.95rem;
+        }
+        .tips-panel li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        .instructions {
+            font-size: 0.95rem;
+            color: #555555;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        .back-link {
+            color: #0969da;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="logo-area">
-    <h1>Golf Rules Education</h1>
-    <p>Master the Rules, Play with Confidence</p>
-  </div>
+    <div class="container">
+        <h1>Golf Rules Education</h1>
+        <div class="subtitle">Master the Rules, Play with Confidence</div>
 
-  <p class="instruction">
-    Click the floating <span>green phone widget</span> in the bottom right corner of your screen to start a live audio call with our Rules Assistant.
-  </p>
+        <!-- 💡 ReadMe Panel to Simplify User Questions -->
+        <div class="tips-panel">
+            <strong>💡 Tips for Best Results with the AI Assistant:</strong>
+            <ul>
+                <li><strong>Be the Player:</strong> Use first-person phrasing (e.g., <em>"I"</em> or <em>"my opponent"</em>) instead of abstract terms like Player A and Player B.</li>
+                <li><strong>State Cause First:</strong> Explain <em>why</em> an action occurred before asking for the penalty (e.g., <em>"I lifted my ball because my opponent gave me the wrong score."</em>).</li>
+                <li><strong>One Step at a Time:</strong> Break complex scenarios down. Ask about the immediate infraction before explaining subsequent events.</li>
+            </ul>
+        </div>
 
-  <p class="mic-note">🎙️ Please choose "Allow" if your web browser asks for microphone access.</p>
+        <p class="instructions">
+            Click the floating green phone widget in the bottom right corner of your screen to start a live audio call with our Rules Assistant.
+            <br><br>
+            🎙 Please choose "Allow" if your web browser asks for microphone access.
+        </p>
 
-  <footer>
-    <a href="#" onclick="window.close(); return false;">← Back to Golf Rules Website</a>
-  </footer>
+        <a href="#" class="back-link">← Back to Golf Rules Website</a>
+    </div>
 
   <!-- The Official Retell AI Automated Web Voice Widget -->
   <script 
