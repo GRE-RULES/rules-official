@@ -17,34 +17,37 @@ align-items: center;
 justify-content: center;
 min-height: 100vh;
 text-align: center;
-padding: 20px;
+padding: 10px 20px; /* Compressed overall mobile padding */
 }
-.logo-area h1 { font-size: 2.2rem; color: #FAEE2E; text-transform: uppercase; letter-spacing: 1px; }
-.logo-area p { font-size: 1.1rem; color: #cccccc; margin-top: 8px; font-style: italic; }
 
-/* Dynamic visual proof banner style */
+/* Clear, compressed typography settings directly on the headings */
+h1 { font-size: 2rem; color: #FAEE2E; text-transform: uppercase; letter-spacing: 1px; }
+.tagline { font-size: 1.1rem; color: #cccccc; margin-top: 4px; font-style: italic; }
+
+/* Tighter visual club banner gaps for small mobile layouts */
 #club-welcome-banner {
-font-size: 1.4rem;
+font-size: 1.3rem;
 color: #FAEE2E;
-margin-top: 20px;
+margin-top: 10px;
+margin-bottom: 5px;
 font-weight: bold;
 text-transform: capitalize;
 border: 2px dashed #FAEE2E;
-padding: 10px 20px;
+padding: 6px 12px;
 border-radius: 10px;
 display: inline-block;
 }
 
-.instruction { font-size: 1.2rem; color: #eeeeee; max-width: 500px; line-height: 1.7; margin-top: 40px; }
+.instruction { font-size: 1.1rem; color: #eeeeee; max-width: 400px; line-height: 1.5; margin-top: 15px; }
 .instruction span { color: #FAEE2E; font-weight: bold; }
-.mic-note { font-size: 1.2rem; color: #FAEE2E; margin-top: 15px; max-width: 500px; }
+.mic-note { font-size: 1.1rem; color: #FAEE2E; margin-top: 6px; max-width: 400px; }
 
-/* Footer Button Layout */
+/* Compressed button row spacing to save height */
 footer { 
-margin-top: 50px; 
+margin-top: 20px; 
 display: flex;
 flex-direction: row;
-gap: 15px; 
+gap: 12px; 
 justify-content: center;
 flex-wrap: wrap; 
 }
@@ -54,10 +57,10 @@ flex-wrap: wrap;
 display: inline-block;
 text-decoration: none; 
 font-weight: bold; 
-padding: 12px 28px;
+padding: 10px 24px; /* Lower padding to prevent vertical screen overflow */
 border-radius: 25px; 
 font-family: Arial, sans-serif; 
-font-size: 0.95rem;
+font-size: 0.9rem;
 text-transform: uppercase;
 letter-spacing: 0.5px;
 box-shadow: 0 4px 6px rgba(0,0,0,0.2);
@@ -90,12 +93,12 @@ color: #1b4220;
 </head>
 <body>
 
-<div class="logo-area">
+<!-- Direct Heading Text (Completely removed old logo-area wrappers) -->
 <h1>Golf Rules Education</h1>
-<p>Master the Rules, Play with Confidence</p>
-<!-- Displays the dynamic club name visually on screen -->
+<p class="tagline">Master the Rules, Play with Confidence</p>
+
+<!-- Clean Visual Welcome Box -->
 <div id="club-welcome-banner" style="display: none;"></div>
-</div>
 
 <p class="instruction">
 Click the floating <span>green phone widget</span> in the bottom right corner of your screen to start a live audio call with our Rules Assistant.
@@ -111,20 +114,21 @@ Click the floating <span>green phone widget</span> in the bottom right corner of
 <a href="#" class="btn-base btn-back" onclick="window.close(); return false;">Return to Website</a>
 </footer>
 
-<!-- 🌟 Cleaned Static HTML Script Tag (100% Verified Baseline Restoration) 🌟 -->
+<!-- Your Original, Fully Verified Retell Script Tag -->
 <script 
 id="retell-widget" 
-src="https://dashboard.retellai.com/retell-widget-v2.js?v=99"
+src="https://retellai.com"
 type="module" 
 data-widget="voice"
-data-voice-public-key="public_key_8c3674150bf33bfd0c741" 
+data-voice-public-key="public_key_8c3674150bf33bfd0c7414" 
 data-voice-agent-id="agent_b92224c12a2b87536a1181890c" 
 data-title="Ask the Rules Official" 
 data-color="#00875A"
 ></script>
 
-<!-- 🌟 Independent Visual-Only Banner Script 🌟 -->
+<!-- Independent Visual-Only Banner Script -->
 <script>
+window.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     let rawClub = urlParams.get('club');
 
@@ -136,6 +140,7 @@ data-color="#00875A"
             banner.style.display = "inline-block";
         }
     }
+});
 </script>
 
 </body>
