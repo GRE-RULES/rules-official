@@ -88,42 +88,38 @@ Click the floating <span>green phone widget</span> in the bottom right corner of
 <p class="mic-note">🎙️ Please choose "Allow" if your web browser asks for microphone access.</p>
 
 <footer>
-<!-- 📄 Solid Light Green PDF User Guide Buttons -->
-<a href="user-instructions.pdf" target="_blank" class="btn-base btn-pdf">📄 View User Guide</a>
+<!-- 📄 Cleaned Single PDF User Guide Button -->
 <a href="user-instructions.pdf" target="_blank" class="btn-base btn-pdf">📄 View User Guide</a>
 
 <!-- 🏠 Return Link Button -->
 <a href="#" class="btn-base btn-back" onclick="window.close(); return false;">Return to Website</a>
 </footer>
 
-<!-- 1. The Protected Static HTML Element (Guarantees the Green Button Appears) -->
-<script 
-id="retell-widget" 
-src="https://dashboard.retellai.com/retell-widget-v2.js?v=99"
-type="module" 
-data-widget="voice"
-data-voice-public-key="public_key_8c3674150bf33bfd0c741" 
-data-voice-agent-id="agent_b92224c12a2b87536a1181890c" 
-data-title="Ask the Rules Official" 
-data-color="#00875A"
-></script>
-
-<!-- 2. Simple Inline Script Layer (Runs Before Retell Finishes Loading) -->
+<!-- 🌟 Cleaned Native Retell Widget Layer (Guarantees the Button Appears) 🌟 -->
 <script>
-(function() {
-    // Grab the incoming parameters from the address bar immediately
+    // 1. Instantly parse URL parameters out of browser memory safely
     const urlParams = new URLSearchParams(window.location.search);
     let rawClub = urlParams.get('club') || "your-golf-club";
     let cleanClubName = rawClub.replace(/-/g, ' ');
 
-    // Safely apply text parameters to the HTML element right now
-    const widget = document.getElementById('retell-widget');
-    if (widget) {
-        // Retell accepts direct string structures when passed to the container attribute
-        widget.dataset.dynamicVariables = '{"club_name":"' + cleanClubName + '"}';
-        widget.dataset.metadata = '{"billing_id":"' + rawClub + '"}';
-    }
-})();
+    // 2. Build a standard script tag dynamically to bypass execution blocks
+    const retellScript = document.createElement('script');
+    retellScript.src = "https://dashboard.retellai.com/retell-widget-v2.js?v=99";
+    retellScript.type = "module";
+    
+    // 3. Inject your exact production configuration keys
+    retellScript.setAttribute('data-widget', 'voice');
+    retellScript.setAttribute('data-voice-public-key', 'public_key_8c3674150bf33bfd0c741');
+    retellScript.setAttribute('data-voice-agent-id', 'agent_b92224c12a2b87536a1181890c');
+    retellScript.setAttribute('data-title', 'Ask the Rules Official');
+    retellScript.setAttribute('data-color', '#00875A');
+    
+    // 4. Pre-bake variables into native attributes before the script contacts the server
+    retellScript.setAttribute('data-dynamic-variables', JSON.stringify({ "club_name": cleanClubName }));
+    retellScript.setAttribute('data-metadata', JSON.stringify({ "billing_id": rawClub }));
+
+    // 5. Append cleanly to the page body to ensure the green button loads instantly
+    document.body.appendChild(retellScript);
 </script>
 
 </body>
