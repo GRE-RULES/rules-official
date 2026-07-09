@@ -126,20 +126,33 @@ data-color="#00875A"
 <!-- 🌟 Safe Dynamic Parsing Script (Separated to protect the Retell layout execution) 🌟 -->
 <script>
 window.addEventListener('DOMContentLoaded', function() {
-    // 1. Read the parameters from the active address bar
+    // 1. Read parameters from the address bar
     const urlParams = new URLSearchParams(window.location.search);
     let rawClub = urlParams.get('club');
 
-    // 2. Execute only if a club parameter is physically present
     if (rawClub) {
-        // Clean up dashes back to readable text spaces
+        // Clean up dashes for natural AI speech pronunciation
         let cleanClubName = rawClub.replace(/-/g, ' ');
         
-        // Find the visual banner container safely
+        // 2. Safely display your yellow visual banner text
         const banner = document.getElementById('club-welcome-banner');
         if (banner) {
             banner.innerText = "Welcome " + cleanClubName;
-            banner.style.display = "inline-block"; // Force it to show on screen
+            banner.style.display = "inline-block";
+        }
+
+        // 3. Inject the data straight into the Retell widget properties before the user calls
+        const widget = document.getElementById('retell-widget');
+        if (widget) {
+            // Feeds your Retell dashboard {{club_name}} welcome greeting token
+            widget.setAttribute('data-dynamic-variables', JSON.stringify({
+                "club_name": cleanClubName
+            }));
+            
+            // Labels your backend Retell dashboard logs for month-end club invoicing
+            widget.setAttribute('data-metadata', JSON.stringify({
+                "billing_id": rawClub
+            }));
         }
     }
 });
