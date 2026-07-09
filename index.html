@@ -96,48 +96,31 @@ Click the floating <span>green phone widget</span> in the bottom right corner of
 <a href="#" class="btn-base btn-back" onclick="window.close(); return false;">Return to Website</a>
 </footer>
 
-<!-- The Official Retell AI Automated Web Voice Widget Element -->
-<script 
-id="retell-widget" 
-src="https://dashboard.retellai.com/retell-widget-v2.js?v=99"
-type="module" 
-data-widget="voice"
-data-voice-public-key="public_key_8c3674150bf33bfd0c741" 
-data-voice-agent-id="agent_b92224c12a2b87536a1181890c" 
-data-title="Ask the Rules Official" 
-data-color="#00875A"
-></script>
-
-<!-- Dynamic Multi-Club Injection Layer -->
+<!-- 🌟 Cleaned Native Retell Widget Layer 🌟 -->
 <script>
-window.addEventListener('load', function() {
-    // 1. Scan the URL string for your custom club parameter
+    // 1. Instantly parse URL params safely out of browser memory
     const urlParams = new URLSearchParams(window.location.search);
-    let rawClub = urlParams.get('club');
-    
-    // 2. Fallback protection if no club parameter is passed in the URL
-    if (!rawClub) {
-        rawClub = "your-golf-club";
-    }
-    
-    // 3. Convert web dashes back into standard spaces for smooth natural pronunciation
+    let rawClub = urlParams.get('club') || "your-golf-club";
     let cleanClubName = rawClub.replace(/-/g, ' ');
+
+    // 2. Build a standard script tag dynamically to avoid race conditions
+    const retellScript = document.createElement('script');
+    retellScript.src = "https://dashboard.retellai.com/retell-widget-v2.js?v=99"
+    retellScript.type = "module";
     
-    // 4. Target the active Retell Widget element on the page
-    const widgetEl = document.getElementById('retell-widget');
+    // 3. Inject your exact production configuration keys
+    retellScript.setAttribute('data-widget', 'voice');
+    retellScript.setAttribute('data-voice-public-key', 'public_key_8c3674150bf33bfd0c741');
+    retellScript.setAttribute('data-voice-agent-id', 'agent_b92224c12a2b87536a1181890c');
+    retellScript.setAttribute('data-title', 'Ask the Rules Official');
+    retellScript.setAttribute('data-color', '#00875A');
     
-    if (widgetEl) {
-        // Set the dynamic variable block using Retell's required HTML property format
-        widgetEl.setAttribute('data-dynamic-variables', JSON.stringify({
-            "club_name": cleanClubName
-        }));
-        
-        // Push metadata for clear multi-tenant billing logs
-        widgetEl.setAttribute('data-metadata', JSON.stringify({
-            "billing_id": rawClub
-        }));
-    }
-});
+    // 4. Inject the pre-processed club data parameters cleanly
+    retellScript.setAttribute('data-dynamic-variables', JSON.stringify({ "club_name": cleanClubName }));
+    retellScript.setAttribute('data-metadata', JSON.stringify({ "billing_id": rawClub }));
+
+    // 5. Append it to the page body to make the widget pop up instantly
+    document.body.appendChild(retellScript);
 </script>
 
 </body>
