@@ -125,24 +125,24 @@ data-color="#00875A"
 
 <!-- 🌟 Safe Dynamic Parsing Script (Separated to protect the Retell layout execution) 🌟 -->
 <script>
-(function() {
-    // 1. Immediately read parameters from the browser address bar
+window.addEventListener('DOMContentLoaded', function() {
+    // 1. Read the parameters from the active address bar
     const urlParams = new URLSearchParams(window.location.search);
     let rawClub = urlParams.get('club');
 
-    // 2. If a club name parameter exists, handle the layout update
+    // 2. Execute only if a club parameter is physically present
     if (rawClub) {
-        // Clean up formatting dashes back into readable text spaces
+        // Clean up dashes back to readable text spaces
         let cleanClubName = rawClub.replace(/-/g, ' ');
         
-        // Target your new HTML display element
+        // Find the visual banner container safely
         const banner = document.getElementById('club-welcome-banner');
         if (banner) {
             banner.innerText = "Welcome " + cleanClubName;
-            banner.style.display = "inline-block"; // Makes it visible on screen!
+            banner.style.display = "inline-block"; // Force it to show on screen
         }
     }
-})();
+});
 </script>
 
 </body>
