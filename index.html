@@ -98,15 +98,47 @@
 
   <!-- The Official Retell AI Automated Web Voice Widget -->
   <script 
-    id="retell-widget" 
-    src="https://dashboard.retellai.com/retell-widget-v2.js?v=99"
-    type="module" 
-    data-widget="voice"
-    data-voice-public-key="public_key_8c3674150bf33bfd0c741" 
-    data-voice-agent-id="agent_b92224c12a2b87536a1181890c" 
-    data-title="Ask the Rules Official" 
-    data-color="#00875A"
+  id="retell-widget" 
+  src="https://dashboard.retellai.com/retell-widget-v2.js?v=99"
+  type="module" 
+  data-widget="voice"
+  data-voice-public-key="public_key_8c3674150bf33bfd0c741" 
+  data-voice-agent-id="agent_b92224c12a2b87536a1181890c" 
+  data-title="Ask the Rules Official" 
+  data-color="#00875A"
   ></script>
+
+  <!-- Dynamic Multi-Club Injection Layer -->
+  <script>
+  window.addEventListener('load', function() {
+    // 1. Scan the browser URL bar for parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    let rawClub = urlParams.get('club');
+    
+    // 2. Fallback logic: If no club is provided in the link, use a generic greeting
+    if (!rawClub) {
+        rawClub = "your golf club";
+    }
+    
+    // 3. Clean up the URL dashes so the AI pronounces the words naturally
+    let cleanClubName = rawClub.replace(/-/g, ' ');
+    
+    // 4. Target the Retell Widget element on your page
+    const retellWidgetElement = document.getElementById('retell-widget');
+    
+    if (retellWidgetElement) {
+        // Feed the clean club name straight into your Retell dynamic variable engine
+        retellWidgetElement.setAttribute('data-dynamic-variables', JSON.stringify({
+            club_name: cleanClubName
+        }));
+        
+        // Also tag the backend billing log metadata for clear multi-tenant invoicing
+        retellWidgetElement.setAttribute('data-metadata', JSON.stringify({
+            billing_id: rawClub
+        }));
+    }
+});
+</script>
 
 </body>
 </html>
