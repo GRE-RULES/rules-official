@@ -22,7 +22,7 @@ padding: 20px;
 .logo-area h1 { font-size: 2.2rem; color: #FAEE2E; text-transform: uppercase; letter-spacing: 1px; }
 .logo-area p { font-size: 1.1rem; color: #cccccc; margin-top: 8px; font-style: italic; }
 
-/* 🌟 Styling for your new dynamic visual proof banner */
+/* Styling for your dynamic visual proof banner */
 #club-welcome-banner {
 font-size: 1.4rem;
 color: #FAEE2E;
@@ -93,7 +93,7 @@ color: #1b4220;
 <div class="logo-area">
 <h1>Golf Rules Education</h1>
 <p>Master the Rules, Play with Confidence</p>
-<!-- 🌟 This empty slot will immediately display the club name proof text -->
+<!-- This empty slot will immediately display the club name proof text -->
 <div id="club-welcome-banner" style="display: none;"></div>
 </div>
 
@@ -104,58 +104,51 @@ Click the floating <span>green phone widget</span> in the bottom right corner of
 <p class="mic-note">🎙️ Please choose "Allow" if your web browser asks for microphone access.</p>
 
 <footer>
-<!-- 📄 Cleaned Single PDF User Guide Button -->
+<!-- Cleaned Single PDF User Guide Button -->
 <a href="user-instructions.pdf" target="_blank" class="btn-base btn-pdf">📄 View User Guide</a>
 
-<!-- 🏠 Return Link Button -->
+<!-- Return Link Button -->
 <a href="#" class="btn-base btn-back" onclick="window.close(); return false;">Return to Website</a>
 </footer>
 
-<!-- 🌟 Cleaned Static HTML Script Tag (Restores widget, avoids crash) 🌟 -->
-<script 
-id="retell-widget" 
-src="https://dashboard.retellai.com/retell-widget-v2.js?v=99"
-type="module" 
-data-widget="voice"
-data-voice-public-key="public_key_8c3674150bf33bfd0c741" 
-data-voice-agent-id="agent_b92224c12a2b87536a1181890c" 
-data-title="Ask the Rules Official" 
-data-color="#00875A"
-></script>
-
-<!-- 🌟 Safe Dynamic Parsing Script (Separated to protect the Retell layout execution) 🌟 -->
+<!-- Cleaned Single Audio Injection Script (Bypasses the Race Condition) -->
 <script>
-window.addEventListener('DOMContentLoaded', function() {
-    // 1. Read parameters from the address bar
+(function() {
+    // 1. Immediately read the club name out of the browser address bar
     const urlParams = new URLSearchParams(window.location.search);
     let rawClub = urlParams.get('club');
+    let cleanClubName = "our golf club"; // Safe fallback string
 
     if (rawClub) {
-        // Clean up dashes for natural AI speech pronunciation
-        let cleanClubName = rawClub.replace(/-/g, ' ');
+        cleanClubName = rawClub.replace(/-/g, ' ');
         
-        // 2. Safely display your yellow visual banner text
+        // Update your yellow screen text banner instantly
         const banner = document.getElementById('club-welcome-banner');
         if (banner) {
             banner.innerText = "Welcome " + cleanClubName;
             banner.style.display = "inline-block";
         }
-
-        // 3. Inject the data straight into the Retell widget properties before the user calls
-        const widget = document.getElementById('retell-widget');
-        if (widget) {
-            // Feeds your Retell dashboard {{club_name}} welcome greeting token
-            widget.setAttribute('data-dynamic-variables', JSON.stringify({
-                "club_name": cleanClubName
-            }));
-            
-            // Labels your backend Retell dashboard logs for month-end club invoicing
-            widget.setAttribute('data-metadata', JSON.stringify({
-                "billing_id": rawClub
-            }));
-        }
     }
-});
+
+    // 2. Programmatically build the Retell tag so variables are pre-baked before execution
+    const retellTag = document.createElement('script');
+    retellTag.src = "https://dashboard.retellai.com/retell-widget-v2.js?v=99";
+    retellTag.type = "module";
+    
+    // Inject your exact production parameters
+    retellTag.setAttribute('data-widget', 'voice');
+    retellTag.setAttribute('data-voice-public-key', 'public_key_8c3674150bf33bfd0c741');
+    retellTag.setAttribute('data-voice-agent-id', 'agent_b92224c12a2b87536a1181890c');
+    retellTag.setAttribute('data-title', 'Ask the Rules Official');
+    retellTag.setAttribute('data-color', '#00875A');
+    
+    // Satisfy Retell's native JSON property requirements cleanly
+    retellTag.setAttribute('data-dynamic-variables', JSON.stringify({ "club_name": cleanClubName }));
+    retellTag.setAttribute('data-metadata', JSON.stringify({ "billing_id": rawClub || "default" }));
+
+    // 3. Insert the script into the document immediately so it draws the widget
+    document.body.appendChild(retellTag);
+})();
 </script>
 
 </body>
