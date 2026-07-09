@@ -88,54 +88,43 @@
   <p class="mic-note">🎙️ Please choose "Allow" if your web browser asks for microphone access.</p>
 
   <footer>
-    <!-- 📄 Solid Light Green PDF User Guide Button -->
-    <!-- Make sure to replace "your-file-name.pdf" with your actual PDF filename -->
+<!-- 📄 Solid Light Green PDF User Guide Button -->
     <a href="user-instructions.pdf" target="_blank" class="btn-base btn-pdf">📄 View User Guide</a>
-    
-    <!-- 🏠 Return Link Button -->
-    <a href="#" class="btn-base btn-back" onclick="window.close(); return false;">Return to Website</a>
-  </footer>
 
-  <!-- The Official Retell AI Automated Web Voice Widget -->
-  <script 
-  id="retell-widget" 
-  src="https://dashboard.retellai.com/retell-widget-v2.js?v=99"
-  type="module" 
-  data-widget="voice"
-  data-voice-public-key="public_key_8c3674150bf33bfd0c741" 
-  data-voice-agent-id="agent_b92224c12a2b87536a1181890c" 
-  data-title="Ask the Rules Official" 
-  data-color="#00875A"
-  ></script>
+<!-- 🏠 Return Link Button -->
+<a href="#" class="btn-base btn-back" onclick="window.close(); return false;">Return to Website</a>
+</footer>
 
-  <!-- Dynamic Multi-Club Injection Layer -->
-  <script>
-  window.addEventListener('load', function() {
-    // 1. Scan the browser URL bar for parameters
+<!-- 1. Load the official Retell Widget library code into browser memory safely -->
+<script src="https://retellai.com"></script>
+
+<!-- 2. Programmatically initialize the call with variables pre-baked -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Extract the dynamic club parameter from the incoming Wix URL string
     const urlParams = new URLSearchParams(window.location.search);
-    let rawClub = urlParams.get('club');
+    let rawClub = urlParams.get('club') || "your golf club";
     
-    // 2. Fallback logic: If no club is provided in the link, use a generic greeting
-    if (!rawClub) {
-        rawClub = "your golf club";
-    }
-    
-    // 3. Clean up the URL dashes so the AI pronounces the words naturally
+    // Convert dashes back to standard spaces for natural AI pronunciation
     let cleanClubName = rawClub.replace(/-/g, ' ');
-    
-    // 4. Target the Retell Widget element on your page
-    const retellWidgetElement = document.getElementById('retell-widget');
-    
-    if (retellWidgetElement) {
-        // Feed the clean club name straight into your Retell dynamic variable engine
-        retellWidgetElement.setAttribute('data-dynamic-variables', JSON.stringify({
-            club_name: cleanClubName
-        }));
-        
-        // Also tag the backend billing log metadata for clear multi-tenant invoicing
-        retellWidgetElement.setAttribute('data-metadata', JSON.stringify({
-            billing_id: rawClub
-        }));
+
+    // Safely fire up the Retell Web SDK with your explicit parameters
+    if (window.RetellWebWidget) {
+        window.RetellWebWidget.init({
+            widget: "voice",
+            voicePublicKey: "public_key_8c3674150bf33bfd0c741",
+            voiceAgentId: "agent_b92224c12a2b87536a1181890c",
+            title: "Ask the Rules Official",
+            color: "#00875A",
+            // This guarantees Retell grabs the club name data BEFORE the caller connects!
+            dynamicVariables: {
+                club_name: cleanClubName
+            },
+            // Automatically tags your dashboard call logs for month-end club invoicing
+            metadata: {
+                billing_id: rawClub
+            }
+        });
     }
 });
 </script>
