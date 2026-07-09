@@ -1,130 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Golf Rules Education — Ask the Rules Assistant</title>
-  
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background-color: #24582A; /* Your exact green theme background */
-      color: #FAEE2E; /* Your exact yellow highlights */
-      font-family: 'Georgia', serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 20px;
-    }
-    .logo-area h1 { font-size: 2.2rem; color: #FAEE2E; text-transform: uppercase; letter-spacing: 1px; }
-    .logo-area p { font-size: 1.1rem; color: #cccccc; margin-top: 8px; font-style: italic; }
-    .instruction { font-size: 1.2rem; color: #eeeeee; max-width: 500px; line-height: 1.7; margin-top: 40px; }
-    .instruction span { color: #FAEE2E; font-weight: bold; }
-    .mic-note { font-size: 1.2rem; color: #FAEE2E; margin-top: 15px; max-width: 500px; }
-    
-    /* Footer Button Layout */
-    footer { 
-      margin-top: 50px; 
-      display: flex;
-      flex-direction: row;
-      gap: 15px; 
-      justify-content: center;
-      flex-wrap: wrap; 
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Golf Rules Education — Ask the Rules Assistant</title>
 
-    /* Base Button Design */
-    .btn-base {
-      display: inline-block;
-      text-decoration: none; 
-      font-weight: bold; 
-      padding: 12px 28px;
-      border-radius: 25px; 
-      font-family: Arial, sans-serif; 
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      transition: all 0.2s ease;
-    }
-    .btn-base:active {
-      transform: scale(0.97); 
-    }
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+background-color: #24582A; /* Your exact green theme background */
+color: #FAEE2E; /* Your exact yellow highlights */
+font-family: 'Georgia', serif;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+text-align: center;
+padding: 20px;
+}
+.logo-area h1 { font-size: 2.2rem; color: #FAEE2E; text-transform: uppercase; letter-spacing: 1px; }
+.logo-area p { font-size: 1.1rem; color: #cccccc; margin-top: 8px; font-style: italic; }
+.instruction { font-size: 1.2rem; color: #eeeeee; max-width: 500px; line-height: 1.7; margin-top: 40px; }
+.instruction span { color: #FAEE2E; font-weight: bold; }
+.mic-note { font-size: 1.2rem; color: #FAEE2E; margin-top: 15px; max-width: 500px; }
 
-    /* Primary Solid Yellow Button (Return) */
-    .btn-back { 
-      background-color: #FAEE2E; 
-      color: #24582A; 
-    }
-    .btn-back:hover { 
-      background-color: #e5da25; 
-      color: #1b4220;
-    }
+/* Footer Button Layout */
+footer { 
+margin-top: 50px; 
+display: flex;
+flex-direction: row;
+gap: 15px; 
+justify-content: center;
+flex-wrap: wrap; 
+}
 
-    /* Solid Filled Light Green Button (PDF Guide) */
-    .btn-pdf {
-      background-color: #78E08F; 
-      color: #24582A; 
-    }
-    .btn-pdf:hover {
-      background-color: #62cf7a; 
-      color: #1b4220;
-    }
-  </style>
+/* Base Button Design */
+.btn-base {
+display: inline-block;
+text-decoration: none; 
+font-weight: bold; 
+padding: 12px 28px;
+border-radius: 25px; 
+font-family: Arial, sans-serif; 
+font-size: 0.95rem;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+transition: all 0.2s ease;
+}
+.btn-base:active {
+transform: scale(0.97); 
+}
+
+/* Primary Solid Yellow Button (Return) */
+.btn-back { 
+background-color: #FAEE2E; 
+color: #24582A; 
+}
+.btn-back:hover { 
+background-color: #e5da25; 
+color: #1b4220;
+}
+
+/* Solid Filled Light Green Button (PDF Guide) */
+.btn-pdf {
+background-color: #78E08F; 
+color: #24582A; 
+}
+.btn-pdf:hover {
+background-color: #62cf7a; 
+color: #1b4220;
+}
+</style>
 </head>
 <body>
 
-  <div class="logo-area">
-    <h1>Golf Rules Education</h1>
-    <p>Master the Rules, Play with Confidence</p>
-  </div>
+<div class="logo-area">
+<h1>Golf Rules Education</h1>
+<p>Master the Rules, Play with Confidence</p>
+</div>
 
-  <p class="instruction">
-    Click the floating <span>green phone widget</span> in the bottom right corner of your screen to start a live audio call with our Rules Assistant.
-  </p>
+<p class="instruction">
+Click the floating <span>green phone widget</span> in the bottom right corner of your screen to start a live audio call with our Rules Assistant.
+</p>
 
-  <p class="mic-note">🎙️ Please choose "Allow" if your web browser asks for microphone access.</p>
+<p class="mic-note">🎙️ Please choose "Allow" if your web browser asks for microphone access.</p>
 
-  <footer>
-<!-- 📄 Solid Light Green PDF User Guide Button -->
-    <a href="user-instructions.pdf" target="_blank" class="btn-base btn-pdf">📄 View User Guide</a>
+<footer>
+<!-- 📄 Solid Light Green PDF User Guide Buttons -->
+<a href="user-instructions.pdf" target="_blank" class="btn-base btn-pdf">📄 View User Guide</a>
+<a href="user-instructions.pdf" target="_blank" class="btn-base btn-pdf">📄 View User Guide</a>
 
 <!-- 🏠 Return Link Button -->
 <a href="#" class="btn-base btn-back" onclick="window.close(); return false;">Return to Website</a>
 </footer>
 
-<!-- 1. Load the official Retell Widget library code into browser memory safely -->
-<script src="https://retellai.com"></script>
+<!-- The Official Retell AI Automated Web Voice Widget Element -->
+<script 
+id="retell-widget" 
+src="https://dashboard.retellai.com/retell-widget-v2.js?v=99"
+type="module" 
+data-widget="voice"
+data-voice-public-key="public_key_8c3674150bf33bfd0c741" 
+data-voice-agent-id="agent_b92224c12a2b87536a1181890c" 
+data-title="Ask the Rules Official" 
+data-color="#00875A"
+></script>
 
-<!-- 2. Programmatically initialize the call with variables pre-baked -->
+<!-- Dynamic Multi-Club Injection Layer -->
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    // Extract the dynamic club parameter from the incoming Wix URL string
+window.addEventListener('load', function() {
+    // 1. Scan the URL string for your custom club parameter
     const urlParams = new URLSearchParams(window.location.search);
-    let rawClub = urlParams.get('club') || "your golf club";
+    let rawClub = urlParams.get('club');
     
-    // Convert dashes back to standard spaces for natural AI pronunciation
+    // 2. Fallback protection if no club parameter is passed in the URL
+    if (!rawClub) {
+        rawClub = "your-golf-club";
+    }
+    
+    // 3. Convert web dashes back into standard spaces for smooth natural pronunciation
     let cleanClubName = rawClub.replace(/-/g, ' ');
-
-    // Safely fire up the Retell Web SDK with your explicit parameters
-    if (window.RetellWebWidget) {
-        window.RetellWebWidget.init({
-            widget: "voice",
-            voicePublicKey: "public_key_8c3674150bf33bfd0c741",
-            voiceAgentId: "agent_b92224c12a2b87536a1181890c",
-            title: "Ask the Rules Official",
-            color: "#00875A",
-            // This guarantees Retell grabs the club name data BEFORE the caller connects!
-            dynamicVariables: {
-                club_name: cleanClubName
-            },
-            // Automatically tags your dashboard call logs for month-end club invoicing
-            metadata: {
-                billing_id: rawClub
-            }
-        });
+    
+    // 4. Target the active Retell Widget element on the page
+    const widgetEl = document.getElementById('retell-widget');
+    
+    if (widgetEl) {
+        // Set the dynamic variable block using Retell's required HTML property format
+        widgetEl.setAttribute('data-dynamic-variables', JSON.stringify({
+            "club_name": cleanClubName
+        }));
+        
+        // Push metadata for clear multi-tenant billing logs
+        widgetEl.setAttribute('data-metadata', JSON.stringify({
+            "billing_id": rawClub
+        }));
     }
 });
 </script>
